@@ -103,7 +103,13 @@ function RenderLandingPage(props) {
             </div>
           </div>
 
-          <Button>Read More</Button>
+          <Button
+            type="default"
+            style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
+            onClick={() => {}} // add onClick handler for Read More
+          >
+            Read More
+          </Button>
         </div>
         <p onClick={() => scrollToTop()} className="back-to-top">
           Back To Top ^
