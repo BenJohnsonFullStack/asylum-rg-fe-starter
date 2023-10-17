@@ -114,7 +114,11 @@ function RenderLandingPage(props) {
 
           <Button
             type="default"
-            style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
+            style={{
+              backgroundColor: '#404C4A',
+              color: '#FFFFFF',
+              marginTop: '6em',
+            }}
             onClick={() => {}} // add onClick handler for Read More
           >
             Read More
