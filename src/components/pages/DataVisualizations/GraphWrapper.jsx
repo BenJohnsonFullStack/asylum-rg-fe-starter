@@ -93,7 +93,6 @@ function GraphWrapper(props) {
         const citizenshipData = res[1].data;
         data.push(fiscalData);
         data[0].citizenshipResults = citizenshipData;
-        console.log(data);
         stateSettingCallback(view, office, data);
       })
       .catch(err => {
