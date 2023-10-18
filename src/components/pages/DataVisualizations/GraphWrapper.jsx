@@ -88,11 +88,13 @@ function GraphWrapper(props) {
 
     Promise.all([fiscalResponse, citizenshipResponse])
       .then(res => {
-        const combinedData = [];
+        const data = [];
         const fiscalData = res[0].data;
         const citizenshipData = res[1].data;
-        combinedData.push(fiscalData, citizenshipData);
-        stateSettingCallback(view, office, combinedData);
+        data.push(fiscalData);
+        data[0].citizenshipResults = citizenshipData;
+        console.log(data);
+        stateSettingCallback(view, office, data);
       })
       .catch(err => {
         console.error(err);
