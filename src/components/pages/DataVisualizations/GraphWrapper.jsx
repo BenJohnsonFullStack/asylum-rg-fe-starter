@@ -72,11 +72,14 @@ function GraphWrapper(props) {
                                    -- Mack 
     
     */
+
+    // capture dynamic params data in a variable based on ternary condition
     const payload =
       office === 'all' || !office
         ? { params: { from: years[0], to: years[1] } }
         : { params: { from: years[0], to: years[1], office: office } };
 
+    // chain multiple endpoints and capture each promise in a variable
     const fiscalResponse = axios.get(
       'https://hrf-asylum-be-b.herokuapp.com/cases/fiscalSummary',
       payload
@@ -86,12 +89,15 @@ function GraphWrapper(props) {
       payload
     );
 
+    // resolve multiple promises simultaneously
     Promise.all([fiscalResponse, citizenshipResponse])
       .then(res => {
+        // shape API response data to match that of our test data
         const data = [];
         const fiscalData = res[0].data;
         const citizenshipData = res[1].data;
         data.push(fiscalData);
+        // ensure that citizenshipSummary data is assigned to the appropriate key based on the expectations of the rest of our pre-built code
         data[0].citizenshipResults = citizenshipData;
         stateSettingCallback(view, office, data);
       })
