@@ -84,6 +84,7 @@ function GraphWrapper(props) {
       'https://hrf-asylum-be-b.herokuapp.com/cases/fiscalSummary',
       payload
     );
+
     const citizenshipResponse = axios.get(
       'https://hrf-asylum-be-b.herokuapp.com/cases/citizenshipSummary',
       payload
