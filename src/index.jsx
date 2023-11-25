@@ -25,6 +25,8 @@ import reducer from './state/reducers';
 import { colors } from './styles/data_vis_colors';
 import { Auth0Provider } from '@auth0/auth0-react';
 
+import { PrivateRoute } from './components/common/PrivateRoute';
+
 const { primary_accent_color } = colors;
 
 const store = configureStore({ reducer: reducer });
@@ -64,7 +66,9 @@ export function App() {
       <Switch>
         <Route path="/" exact component={LandingPage} />
         <Route path="/graphs" component={GraphsContainer} />
-        <Route path="/profile" component={Profile} />
+        <PrivateRoute path="/profile">
+          <Profile />
+        </PrivateRoute>
         <Route component={NotFoundPage} />
       </Switch>
       <Footer
