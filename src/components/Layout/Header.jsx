@@ -21,12 +21,15 @@ function HeaderContent() {
           <Image width={100} src={Logo} preview={false} alt="HRF logo white" />
         </a>
       </div>
-      <div>
-        <Link to="/" style={{ color: '#E2F0F7', paddingRight: '75px' }}>
+      <div style={{ display: 'flex', gap: '2rem' }}>
+        <Link to="/" style={{ color: '#E2F0F7' }}>
           Home
         </Link>
         <Link to="/graphs" style={{ color: '#E2F0F7' }}>
           Graphs
+        </Link>
+        <Link to="/profile" style={{ color: '#E2F0F7' }}>
+          My Profile
         </Link>
       </div>
     </div>
