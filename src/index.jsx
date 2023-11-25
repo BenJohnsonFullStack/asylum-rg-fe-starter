@@ -23,6 +23,7 @@ import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import reducer from './state/reducers';
 import { colors } from './styles/data_vis_colors';
+import { Auth0Provider } from '@auth0/auth0-react';
 
 const { primary_accent_color } = colors;
 
@@ -30,9 +31,17 @@ const store = configureStore({ reducer: reducer });
 ReactDOM.render(
   <Router>
     <Provider store={store}>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
+      <Auth0Provider
+        domain="dev-jeg7nfzkyosh42mc.us.auth0.com"
+        clientId="26AdWG3zWwjhHvyLecNjPdI8XqV361zo"
+        authorizationParams={{
+          redirect_uri: window.location.origin,
+        }}
+      >
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </Auth0Provider>
     </Provider>
   </Router>,
   document.getElementById('root')
